@@ -1,0 +1,106 @@
+name: Build and Deploy Blog
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - 'content/**'
+      - 'templates/**'
+      - 'assets/**'
+      - 'build/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Step 1: Compile markdown to HTML using milkdown (to be implemented)
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Compile markdown with milkdown
+        run: |
+          echo "🔄 Compiling markdown files with milkdown..."
+          pnpm run compile:markdown
+          echo "✅ Milkdown compilation completed"
+          
+      - name: Upload compiled content
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-content
+          path: content/
+
+  # Step 2: Build static site
+  build:
+    needs: compile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+        
+      - name: Download compiled content
+        uses: actions/download-artifact@v4
+        with:
+          name: compiled-content
+          path: content/
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  # Step 3: Deploy to GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,29 @@
+{
+  "name": "{{SITE_NAME_SLUG}}",
+  "version": "0.0.1",
+  "description": "A simple, modern blog template for Inland",
+  "type": "module",
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/index.js",
+    "preview": "npm run build && npx serve dist",
+    "compile:markdown": "node build/milkdown-compiler.js"
+  },
+  "keywords": [
+    "blog",
+    "static",
+    "inland"
+  ],
+  "author": "{{SITE_AUTHOR}}",
+  "license": "MIT",
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "mustache": "^4.2.0",
+    "chokidar": "^3.6.0",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "packageManager": "pnpm@9.15.9+sha512.68046141893c66fad01c079231128e9afb89ef87e2691d69e4d40eee228988295fd4682181bae55b58418c3a253bde65a505ec7c5f9403ece5cc3cd37dcf2531"
+}

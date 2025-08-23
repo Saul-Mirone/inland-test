@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{article.title}} - {{name}}</title>
+    <meta name="description" content="{{article.excerpt}}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{url}}/articles/{{article.slug}}.html">
+    <meta property="og:title" content="{{article.title}} - {{name}}">
+    <meta property="og:description" content="{{article.excerpt}}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{url}}/articles/{{article.slug}}.html">
+    <meta property="twitter:title" content="{{article.title}} - {{name}}">
+    <meta property="twitter:description" content="{{article.excerpt}}">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header header-minimal">
+        <div class="container">
+            <h1 class="site-title">
+                <a href="../index.html" class="site-link">{{name}}</a>
+            </h1>
+            <nav class="site-nav">
+                <a href="../index.html" class="nav-link">← Back to Home</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="site-main">
+        <div class="container">
+<article class="article-page">
+    <header class="article-header">
+        <div class="article-meta">
+            <time datetime="{{article.date}}" class="article-date">{{article.formattedDate}}</time>
+            {{#article.status}}
+            <span class="article-status status-{{article.status}}">{{article.status}}</span>
+            {{/article.status}}
+            {{#article.isCompiled}}
+            <span class="compilation-badge">Compiled with milkdown</span>
+            {{/article.isCompiled}}
+        </div>
+        <h1 class="article-title">{{article.title}}</h1>
+        {{#article.excerpt}}
+        <p class="article-excerpt">{{article.excerpt}}</p>
+        {{/article.excerpt}}
+    </header>
+    
+    <div class="article-content">
+        {{{article.content}}}
+    </div>
+    
+    <footer class="article-footer">
+        <div class="article-actions">
+            <a href="../index.html" class="back-link">← Back to all articles</a>
+        </div>
+        
+        {{#article.tags}}
+        <div class="article-tags">
+            <span class="tags-label">Tags:</span>
+            {{#tags}}
+            <span class="tag">{{.}}</span>
+            {{/tags}}
+        </div>
+        {{/article.tags}}
+    </footer>
+</article>
+
+<nav class="article-navigation">
+    <div class="nav-links">
+        {{#prevArticle}}
+        <a href="{{slug}}.html" class="nav-link nav-prev">
+            <span class="nav-label">← Previous</span>
+            <span class="nav-title">{{title}}</span>
+        </a>
+        {{/prevArticle}}
+        
+        {{#nextArticle}}
+        <a href="{{slug}}.html" class="nav-link nav-next">
+            <span class="nav-label">Next →</span>
+            <span class="nav-title">{{title}}</span>
+        </a>
+        {{/nextArticle}}
+    </div>
+</nav>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 {{author}}. Powered by <a href="https://github.com/your-org/inland" target="_blank" rel="noopener">Inland</a></p>
+        </div>
+    </footer>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

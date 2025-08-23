@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{#pageTitle}}{{pageTitle}} - {{/pageTitle}}{{name}}</title>
+    <meta name="description" content="{{description}}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{url}}">
+    <meta property="og:title" content="{{#pageTitle}}{{pageTitle}} - {{/pageTitle}}{{name}}">
+    <meta property="og:description" content="{{description}}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{url}}">
+    <meta property="twitter:title" content="{{#pageTitle}}{{pageTitle}} - {{/pageTitle}}{{name}}">
+    <meta property="twitter:description" content="{{description}}">
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{name}}" href="{{url}}/rss.xml">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{#baseUrl}}{{baseUrl}}/{{/baseUrl}}styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">
+                <a href="{{#baseUrl}}{{baseUrl}}/{{/baseUrl}}index.html">{{name}}</a>
+            </h1>
+            <p class="site-description">{{description}}</p>
+            <nav class="site-nav">
+                <a href="{{#baseUrl}}{{baseUrl}}/{{/baseUrl}}index.html" class="nav-link">Home</a>
+                <a href="{{#baseUrl}}{{baseUrl}}/{{/baseUrl}}rss.xml" class="nav-link">RSS</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="site-main">
+        <div class="container">
+            {{{content}}}
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{currentYear}} {{author}}. Powered by <a href="https://github.com/your-org/inland" target="_blank" rel="noopener">Inland CMS</a></p>
+        </div>
+    </footer>
+    
+    <script src="{{#baseUrl}}{{baseUrl}}/{{/baseUrl}}script.js"></script>
+</body>
+</html>
