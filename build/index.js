@@ -20,10 +20,10 @@ class BlogBuilder {
   constructor() {
     this.templateEngine = new TemplateEngine()
     this.siteConfig = {
-      name: '{{SITE_NAME}}',
-      description: '{{SITE_DESCRIPTION}}',
-      url: 'https://{{GITHUB_USERNAME}}.github.io/{{SITE_NAME_SLUG}}',
-      author: '{{SITE_AUTHOR}}'
+      name: 'inland-test',
+      description: 'Test inland features.',
+      url: 'https://Saul-Mirone.github.io/inland-test',
+      author: 'Mirone'
     }
   }
 
