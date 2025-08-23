@@ -1,5 +1,5 @@
 {
-  "name": "{{SITE_NAME_SLUG}}",
+  "name": "inland-test",
   "version": "0.0.1",
   "description": "A simple, modern blog template for Inland",
   "type": "module",
@@ -14,7 +14,7 @@
     "static",
     "inland"
   ],
-  "author": "{{SITE_AUTHOR}}",
+  "author": "Mirone",
   "license": "MIT",
   "dependencies": {
     "front-matter": "^4.0.2",
