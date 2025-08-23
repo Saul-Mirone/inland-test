@@ -1,26 +1,21 @@
 ---
 title: Test Article
 date: 2025-08-23
-excerpt: Quick Start The fastest way to get started is using @milkdown/crepe: ``bash npm install @milkdown/crepe ` `typescript import { Crepe } from...
+excerpt: Creating Your First Editor Milkdown provides two distinct approaches to create an editor, each suited for different needs: 🍼 Using @milkdown/kit...
 ---
 
-## Quick Start
+## Creating Your First Editor
 
-The fastest way to get started is using `@milkdown/crepe`:
+Milkdown provides two distinct approaches to create an editor, each suited for different needs:
 
-```bash
-npm install @milkdown/crepe
-```
+### 1. 🍼 Using `@milkdown/kit` (Build from Scratch)
 
-```typescript
-import { Crepe } from "@milkdown/crepe";
-import "@milkdown/crepe/theme/common/style.css";
-import "@milkdown/crepe/theme/frame.css";
+This approach gives you complete control over your editor. Use this if you want to:
 
-const crepe = new Crepe({
-  root: "#app",
-  defaultValue: "Hello, Milkdown!",
-});
+* Build a custom editor from the ground up
 
-crepe.create();
-```
+* Have full control over which features to include
+
+* Create a highly customized editing experience
+
+* Integrate with specific frameworks or requirements
