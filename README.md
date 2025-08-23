@@ -53,11 +53,11 @@ template-basic-blog/
 The template uses Mustache syntax for variable replacement:
 
 ### Site-level Variables
-- `{{SITE_NAME}}` - Site name
-- `{{SITE_DESCRIPTION}}` - Site description  
-- `{{SITE_AUTHOR}}` - Author name
-- `{{SITE_NAME_SLUG}}` - URL-safe site name
-- `{{GITHUB_USERNAME}}` - GitHub username
+- `inland-test` - Site name
+- `Test inland features.` - Site description  
+- `Mirone` - Author name
+- `inland-test` - URL-safe site name
+- `Saul-Mirone` - GitHub username
 
 ### Article-level Variables
 - `{{article.title}}` - Article title
