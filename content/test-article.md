@@ -1,7 +1,7 @@
 ---
 title: Test Article
 date: 2025-08-23
-excerpt: Creating Your First Editor Milkdown provides two distinct approaches to create an editor, each suited for different needs: 🍼 Using @milkdown/kit...
+excerpt: Creating Your First Editor Milkdown provides two distinct approaches to create an editor, each suited for different needs 🍼 Using @milkdown/kit...
 ---
 
 ## Creating Your First Editor
