@@ -23,4 +23,4 @@ This template is designed to work with your custom milkdown compiler. When you p
 - ✅ **Static file performance** 
 - ✅ **Theme customization** with simple templates
 
-**Happy blogging!** 🎉
+**Happy blogging!** 🎉🎉🎉
