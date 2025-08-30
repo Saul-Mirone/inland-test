@@ -1,10 +1,10 @@
 ---
 title: Welcome to Your New Book
-date: 2025-08-25
-excerpt: Welcome to Your New Book Congratulations! You've successfully created your new blog using Inland. This template is designed to work with your custom...
+date: 2025-08-30
+excerpt: Welcome to Your New Blog Congratulations! You've successfully created your new blog using Inland. This template is designed to work with your custom...
 ---
 
-# Welcome to Your New Book
+# Welcome to Your New Blog
 
 Congratulations! You've successfully created your new blog using **Inland**.
 
