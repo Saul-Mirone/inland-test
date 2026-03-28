@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{article.title}} - {{name}}</title>
+    <meta name="description" content="{{article.excerpt}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{url}}/{{article.slug}}/">
+    <meta property="og:title" content="{{article.title}} - {{name}}">
+    <meta property="og:description" content="{{article.excerpt}}">
+    {{#article.tags}}
+    <meta property="article:tag" content="{{.}}">
+    {{/article.tags}}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{url}}/{{article.slug}}/">
+    <meta property="twitter:title" content="{{article.title}} - {{name}}">
+    <meta property="twitter:description" content="{{article.excerpt}}">
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{name}}" href="{{url}}/rss.xml">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Theme detection -->
+    <script>
+    (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    })();
+    </script>
+</head>
+<body>
+    <header class="site-header header-minimal">
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+            <h3 class="site-title">
+                <a href="../">{{name}}</a>
+            </h3>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <header class="article-header">
+                <h1 class="article-title">{{article.title}}</h1>
+                <div class="article-meta">
+                    <time datetime="{{article.date}}" class="article-date">{{article.formattedDate}}</time>
+                    {{#article.formattedUpdatedAt}}
+                    <span class="article-updated">Updated {{article.formattedUpdatedAt}}</span>
+                    {{/article.formattedUpdatedAt}}
+                    {{#article.tags}}
+                    <a href="../tags/{{slug}}/" class="article-tag">{{name}}</a>
+                    {{/article.tags}}
+                </div>
+                {{#article.excerpt}}
+                <p class="article-description">{{article.excerpt}}</p>
+                {{/article.excerpt}}
+            </header>
+
+            <div class="article-content">
+                {{{article.content}}}
+            </div>
+
+            <nav class="post-navigation">
+                {{#prevArticle}}
+                <div class="nav-prev">
+                    <a href="../{{slug}}/">&laquo; {{title}}</a>
+                </div>
+                {{/prevArticle}}
+                {{#nextArticle}}
+                <div class="nav-next">
+                    <a href="../{{slug}}/">{{title}} &raquo;</a>
+                </div>
+                {{/nextArticle}}
+            </nav>
+
+            <hr class="article-footer-separator">
+
+            {{#author}}
+            <div class="bio">
+                <img class="bio-avatar" src="{{avatarUrl}}" alt="{{author}}" />
+                <div class="bio-text">
+                    <p><strong><a href="{{authorUrl}}">{{author}}</a></strong></p>
+                    {{#description}}<p>{{description}}</p>{{/description}}
+                </div>
+            </div>
+            {{/author}}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../rss.xml">rss</a>
+            </div>
+            <span>Powered by <a href="https://github.com/Saul-Mirone/inland" target="_blank" rel="noopener">Inland</a></span>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
