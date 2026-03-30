@@ -1,6 +1,7 @@
 ---
 title: Welcome to Your New Blog
 date: 2025-08-22
+updatedAt: 2026-03-30
 excerpt: Welcome to your new blog powered by Inland! This is your first article.
 tags: [welcome, inland]
 ---
@@ -17,10 +18,13 @@ This template is designed to work with your custom milkdown compiler. When you p
 
 ## Key Features
 
-- ✅ **Custom markdown rendering** with milkdown
-- ✅ **GitHub Actions automation** for compilation
-- ✅ **Static file performance** 
-- ✅ **Theme customization** with simple templates
+* ✅ **Custom markdown rendering** with milkdown
+
+* ✅ **GitHub Actions automation** for compilation
+
+* ✅ **Static file performance**
+
+* ✅ **Theme customization** with simple templates
 
 ## Template Structure
 
